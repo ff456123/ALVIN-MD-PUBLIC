@@ -1,27 +1,31 @@
-const mega = require("megajs");
-const auth = {
-    email: 'EnterYourMegaEmail',
-    password: 'EnterYourMegaPassword',
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
-}
+{
+  "name": "ALVIN-MD",
+  "description": "Javascript WhatsApp bot made by mr suranga",
+  "logo": "https://i.ibb.co/HpDg2Bt/2246.jpg",
+  "keywords": ["bot"],
+  "success_url": "/",
 
-const upload = (data, name) => {
-    return new Promise((resolve, reject) => {
-        try {
-            const storage = new mega.Storage(auth, () => {
-                data.pipe(storage.upload({name: name, allowUploadBuffering: true}));
-                storage.on("add", (file) => {
-                    file.link((err, url) => {
-                        if (err) throw err;
-                        storage.close()
-                        resolve(url);
-                    });
-                });
-            });
-        } catch (err) {
-            reject(err);
+  "env": {
+    "SESSION_ID": {
+      "description": "Put the session-id here.",
+      "required": true
+    },  
+
+    "ALIVE_IMG": {
+      "description": "Put your alive img here.",
+      "required": true
+    },
+    
+    "ALIVE_MSG": {
+      "description": "Put your alive msg here.",
+      "required": true
+    }   
+},
+
+     "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
         }
-    });
-};
-
-module.exports = { upload };
+     ],
+  "stack": "heroku-24"
+}
