@@ -1,6 +1,6 @@
 {
-  "name": "ALVIN-MD",
-  "description": "Javascript WhatsApp bot made by mr suranga",
+  "name": "alvin-md",
+  "description": "Javascript WhatsApp bot made by suranga",
   "logo": "https://i.ibb.co/HpDg2Bt/2246.jpg",
   "keywords": ["bot"],
   "success_url": "/",
